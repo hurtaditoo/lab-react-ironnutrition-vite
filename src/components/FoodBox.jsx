@@ -1,6 +1,8 @@
 
-const FoodBox = ({ food }) => {
+const FoodBox = ({ food, onDelete }) => {
   const { name, calories, image, servings } = food;
+
+  const handleDelete = () => onDelete(food.id);
 
   return (
     <div 
@@ -14,13 +16,13 @@ const FoodBox = ({ food }) => {
         <img src={image} alt="Fruit Image" style={{ maxWidth: '250px' }} />
 
         <p>Calories: {calories}</p>
-        <p>Servings <b>{servings}</b></p>
+        <p>Servings {servings}</p>
 
         <p>
             <b>Total Calories: {calories * servings} </b> kcal
         </p>
 
-        <button>Delete</button>
+        <button onClick={handleDelete}>Delete</button>
     </div>
   );
 };
